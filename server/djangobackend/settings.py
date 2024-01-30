@@ -27,9 +27,9 @@ DEBUG = True
 
 APPEND_SLASH = True
 
-ALLOWED_HOSTS = ['localhost','<Your app URL>']
+ALLOWED_HOSTS = ['localhost','*']
 
-CSRF_TRUSTED_ORIGINS = ['<Your app URL>']
+CSRF_TRUSTED_ORIGINS = ['localhost']
 
 
 # Application definition

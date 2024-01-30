@@ -15,7 +15,12 @@ def main(param_dict):
         param_dict (Dict): input paramater
 
     Returns:
-        _type_: _description_ TODO
+    {
+        "dbs": [
+            "dealerships",
+            "reviews"
+        ]
+    }
     """
 
     try:
