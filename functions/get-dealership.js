@@ -29,7 +29,7 @@ let db;
 app.use(express.json());
 
 // Define a route to get all dealerships with optional state and ID filters
-app.get('/api/dealerships', (req, res) => {
+app.get('/api/dealership', (req, res) => {
     const { state, id } = req.query;
 
     // Create a selector object based on query parameters
@@ -57,6 +57,8 @@ app.get('/api/dealerships', (req, res) => {
         }
     });
 });
+
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
