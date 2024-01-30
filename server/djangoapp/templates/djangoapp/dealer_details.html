@@ -49,7 +49,31 @@
         </div>
     </nav>
     <!-- Add reviews as cards -->
-
+    <div class="container">
+        <div class="row">
+            {% for review in reviews %}
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        {% if review.sentiment == 'positive' %}
+                            <img class="card-img-top img-fluid" src="{{MEDIA_URL}}/emoji/positive.png" alt="Positive Sentiment" style="max-width: 50px;">
+                        {% elif review.sentiment == 'neutral' %}
+                            <img class="card-img-top img-fluid" src="{{MEDIA_URL}}/emoji/neutral.png" alt="Neutral Sentiment" style="max-width: 50px;">
+                        {% else %}
+                            <img class="card-img-top img-fluid" src="{{MEDIA_URL}}/emoji/negative.png" alt="Negative Sentiment" style="max-width: 50px;">
+                        {% endif %}
+                        <div class="card-body bg-light">
+                            <h5 class="card-title font-weight-bold">{{ review.car_make }} {{ review.car_model }} - {{ review.car_year }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted font-weight-bold">{{ review.reviewer_name }}</h6>
+                            <p class="card-text">{{ review.review }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                    </div><div class="row">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
     </body>
 
 </html>
